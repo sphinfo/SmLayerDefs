@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MAP 속도 테스트</title>
+<link href="css/font-awesome.css" rel="stylesheet">
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/jquery-ui.css" rel="stylesheet">
+<link href="css/jquery-ui.theme.css" rel="stylesheet">
+
+<style>
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+#map {
+	height: 100%;
+}
+.col-md-4{
+	padding-left: 0;
+	padding-right: 0;
+}
+.panel-default > .panel-heading {
+    color: #FFF;
+     background: red; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#466492, #152542); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#466492, #152542); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#466492, #152542); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#466492, #152542); /* Standard syntax */
+}
+</style>
+<script type="text/javascript" src="supermap/libs/SuperMap.Include.js"></script>
+<script type="text/javascript" src="js/jquery-1.12.3.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/jquery-ui.js"></script>
+<script type="text/javascript" src="js/SmUtils.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#map").parent().height($(document).height()-100);
+});
+</script>
+<script type="text/javascript" src="js/smdynamic.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#searchBtn").on("click",function(){
+		SmDynamic.createTempLayer($("#selectLayer").val(),$("#query").val());
+	});
+	$("#refreshBtn").on("click",function(){
+		delete SmDynamic.dynamicLayer.params["layersID"];
+		SmDynamic.dynamicLayer.redraw();
+	});
+	
+});
+</script>
+</head>
+<body>
+	<div class="panel panel-default">
+	    <div class="panel-heading" id="ctlHeader">
+	    	Layer Query
+	    	<select id="selectLayer" style="color:#333">
+	    	</select>
+	    	<input id="query" type="text" style="color:#333">
+	    	<a id="searchBtn" class="btn btn-default" href="#" role="button">
+	    		<i class="fa fa-search"></i>
+	    	</a>
+	    	<a id="refreshBtn" class="btn btn-default" href="#" role="button">
+	    		<i class="fa fa-refresh"></i>
+	    	</a>
+	    </div>
+	    <div class="panel-body">
+			<div id="map" class="map">
+			    	
+			</div>
+	    </div>
+	</div>
+	
+</body>
+</html>
