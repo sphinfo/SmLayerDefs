@@ -47,7 +47,6 @@ var SmDynamic = {
 	 * 화면이 Select 설정 및 레이어 정보를 SmDynamic.layerStatusList에 설정
 	 */
 	getLayersInfoCompleted : function(getLayersInfoEventArgs){
-		
 		SmDynamic.layerStatusList=[];
 		if (getLayersInfoEventArgs.result) {
 			$.each(getLayersInfoEventArgs.result.subLayers.layers,function(idx,layer){
@@ -61,8 +60,6 @@ var SmDynamic = {
 		        SmDynamic.layerStatusList.push(layerStatus);
 			});
 		}
-		
-        
 	},
 	/**
 	 * SetLayerStatusService를 이용하여 TempLayer 생성
