@@ -26,7 +26,7 @@ var SmDynamic = {
 		SmDynamic.map.addLayer(SmDynamic.vworldLayer);
 		SmDynamic.map.setCenter(new SuperMap.LonLat(14145820.89, 4520532.067),13);
 		SmDynamic.dynamicLayer = new SuperMap.Layer.TiledDynamicRESTLayer("dynamic", SmDynamic.dynamicUrl,
-				{transparent: true, redirect: true,cacheEnabled: false}, 
+				{transparent: true, cacheEnabled: false}, 
 				{isBaseLayer:false,maxResolution: "auto",bufferImgCount:0 });
 		SmDynamic.dynamicLayer.events.on({"layerInitialized": SmDynamic.addLayer});
 		//Layer 정보 설정
